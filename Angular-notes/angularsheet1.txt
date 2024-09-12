@@ -1,0 +1,185 @@
+What is Angular?
+    Angular is a front end framework and a developer-platform developed by google in 2012.
+    Angular is built usinfg TypeScript unlike it's previous version AngularJS which is based on JavaScript
+    Angular is also calles as AngularTS/Angular+/Angular2
+
+what is the use of Angular?
+    Angular is used to develop SPA(single page applications) ad PWA(progressive web applications)
+
+Difference between framework and Libraries
+    =>Framework:
+        framework provides complete package for developers            
+    =>Library:
+        library is a predefined code for specific purpose, React is also a library for UI/UX(user interface/user experience) purpose.
+
+to go back to previoud=s folder we use command cd..
+
+installations:
+    step 1:install npm and check version using command "npm -v"
+    step 2: install angular globally(-g) in the system use command "npm install -g @angular/cli"
+    step 3: check the version using command "ng v" // ng means angular. angular uses scoffloding(Scaffolding means a seperate terminal commands generates a basic code)
+    step 4: create a new folder(Angular is folder name for me) in vs code
+    step 5: open a command prompt in VScode move to created folder using command "cd folder-name"(ex cd Angular)
+    step 6: to create a new application use commad "ng new application-name --standalon=false"(in my case application name is firstProject & application name should not contain any special characters except _
+        from angular 17 onwards there is new concept called standalone to disable it we are using standalone=false)
+        while doing it for the first time we get 
+        Would you like to share pseudonymous usage data about this project with  
+        the Angular Team
+        at Google under Google's Privacy Policy at
+        https://policies.google.com/privacy. For more
+        details and how to change this setting, see
+        https://angular.dev/cli/analytics.
+        type Y
+        to diable use ng analytics disable --global
+        then in the options about stylesheets select CSS
+        then give no when asked for  server-side rendering(because to use client side rendering)
+        if while using powershell error appears then use command prompt in the terminal
+    step 7: move to the creted appliaction using command cd app-name(ex:cd firstProject)
+    step 8: for running the application use command "ng serve" or "ng serve --o" give y , to diable use command ng analytics disable
+            to stop the server : ctrl+c     
+            default server is :   http://localhost:4200/ for angular
+Folder structure analysis:
+    tsconfig files defines rules typescript compiler follows when converting ts into JavaScript
+        ->tsconfig.spec.json=>for testing
+        ->tsconfig.app.json=>for specific application
+        ->tsconfig.json=>for whole project
+    README.md =>is instruction file(project details) and this is not mandatory
+    package.json=> describs the meta data of project(i.e it stores list of dependencies(like all packages needed for the project,project name))
+    package-lock.json=> describes meta data of package.json(i.e in detailed information about paths from where we get the packages in package.json)
+    node_modules=> contains all the packages need for the project.if it got deleted then we can simply write npm install as package.json stores the list packages need
+    .gitignore=> contains files/folders which can be ignored while git stores in github
+    angular.json=> rule set for angular
+    .editorconfig=> defines rule set for editors(like edit+, vscode,sublimetext, atomeclipse,netbeans ).it make sure cde is not depended on editors.
+    index.html----main html file which contains app-root
+    style.css----which is main css file
+    main.ts=>which bootstraps app module and is the main typescript file
+        ANgular converts static DOM into Dynamic DOM
+        bootstrapModule(AppModule) used to convert static DOM into dynamic DOM.
+        converting static DOM into dynamic DOM is called bootstraping(its not related to bootstrap)
+        Static DOM=> loading entire page when clicking on particular module.
+        Dynamic DOM=>loads specified part when clicking on particular module.
+    whole application(app folder) will be divided as components.each component will have
+    ->.ts file(component file)
+    ->.spec.ts file(testing file)
+    ->.html file(template file)
+    ->.css file(styling file)
+    all components will have a name(selector)
+    all components are mentioned in module
+    
+to create new component inside application:
+goto application usig command cd application-name
+then type ng generate component new-component-name
+
+Git:
+    Git is an application which needs to be download and install, which is used to track version., it is a version control system.
+    https://git-scm.com/download download git
+    after installing check version in cmd using command git -v
+    we can use coding files in github https://github.com/
+     git config --global user.email "lakshmithirumala.anne@gmail.com"
+     git config --global user.name "Lakshmi-Anne"
+
+    step 1:git init
+    step 2:git add .
+    step 3:git comitt -m "comment"
+    step 4:git remote add origin "link"(https://github.com/Lakshmi-Anne/Angular16.git)
+    step 5:git push -u origin master
+
+GitHub:
+    it is just a online code storage to store code files(similarly we have bitbucket,gitlab,aws)
+    step1:
+        download git and check the version using git -v command in cmd
+    step 2:
+        create github account and login
+    step 3:
+        go to visual studion code and login into git
+    step 4:
+        setup config's in vscode for that write beloow commands in terminal->commad prompt
+        git config --global user.email "your email id"
+        git config --global user.name "your name"
+    
+    git will have 5 commands:
+    command1: git init=> to initialize git
+    command2: git add <file-name>(or). => to add files to git
+    command3:  git commmit -m "message" => to commit changes with the message
+    if you are making changes in the file then we have to repeat command2 and command3(i.e add and commit)
+    command4: git remote add origin "our github repository link"=> this is to add repository to where we need to push the code
+    command5: git push -u origin "branch"(master/main)=>this is push code to hithub       
+    
+    to download code from someone else's code from github we use command
+        git clone "project-link" => it downloads that project into our system but will not automatically updates whenevr that project is updated
+        git pull 
+    to fork(i.e clone someone's code in github to our profile with automatic updatations whenever original code get's updated.)
+        in github goto their profile and repository which we want to clone then click on fork. then click on sync fork and click on update branch
+    to read someone code from github
+        goto their respository and type "."(dot)
+
+
+
+    to share application/project(created) to everyone(i.e making application visible to everyone):
+    check package.json in availble in current folder or not
+    then to make sure anyone can see application type ng build
+    it creates distribution folder
+    then go to netlify->add new site->deploy manually-> select folder of the project->it will develop application
+    go to site overview and if you want to change name go to change configuration and change site name
+    copy link then that link is used to share the application
+
+Data Biding:
+    the transmission of data from component to template or template to component or both is called data binding.
+    Angular supports one-way and two-way data binding. where as in react only one-way data binding.
+    ->One-Way Data binding:
+        1.component-to-template:
+            In here data is sent from component to template. the following are ways of sending data
+            1. String interpolation:
+            it is a way of getting data from component to template as a String.
+            we will do it by using {{}}(double flower brackets).
+            it send everything as string(even if we are sending boolean, number,..)
+            2. Property Binding:
+            it is also an another way of sending data from component fie to template but it wont send data as string(i.e it sends as it's type)
+            we will do it using [](square brackets)
+        2.template-to-component:
+        it is a way of sending events/data from template(html file) to component(.ts file)
+        this is called Event Binding.
+        we will acheive this by ()(pranthesis).
+    ->Two-Way-Databinding:
+        two way data binding means data should be sent component to template and template to component at a time(simultaneously).
+        we will achieve two-way databinding by ngModel like "[(ngModel)]"
+        ngModule is a part of FormsModule-> so while using go to app.module.ts and import FormsModule like import { FormsModule} from '@angular/forms'
+        steps to achieve two-way ddatabinding:
+        ->syntax: <input [(ngModel)]="variable">, u need to declare it in component.ts file as varaiable:datatype;
+        -> to make ngModel work, we need to import FormsModule in app.module.ts file. so write it in imports
+            import { FormsModule} from '@angular/forms'
+
+Component Communication:
+    Component is the logical division of user Interface.
+    Each component will have 4 files.
+        1. Component.ts(component)
+        2. Component.html(template)
+        3. Component.spec.ts(testing)
+        4. Component.css(styling)
+    Every component have a name called Selector, whenever you mention selector, there that component apperas.
+    One component inside another component are called nested components.
+    Container components are called as parent component and inner component is called as Child component
+    ->to create new component inside application:
+        goto application using command cd application-name
+        then type ng generate component new-component-name
+    
+    Component communication means one component can send data to another component.
+    there are three ways to achieve it.
+        1. parent to Child
+        2. child to parent
+        3. component to component
+
+        1.Parent to child: 
+            In here parent component sends the data to child as properties and child will receive as @Input()
+            //parent- component.html:
+            <app-child var-name1="var-name2"></app-child>
+            //child-component.ts:
+            @Input() var-name2
+        2.child to parent:
+            In hre child component sends the data parent component in three ways
+            i. @output()
+            ii. @viewChild()
+            iii. @template reference variable
+
+            i. @output():
+            
